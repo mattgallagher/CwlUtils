@@ -20,6 +20,10 @@
 
 import Foundation
 
+#if os(Linux)
+import Dispatch
+#endif
+
 /// A basic mutex protocol that requires nothing more than "performing work inside the mutex".
 public protocol ScopedMutex {
 	/// Perform work inside the mutex
@@ -90,9 +94,9 @@ public final class PThreadMutex: RawMutex {
 		}
 		switch type {
 		case .normal:
-			pthread_mutexattr_settype(&attr, PTHREAD_MUTEX_NORMAL)
+			pthread_mutexattr_settype(&attr, Int32(PTHREAD_MUTEX_NORMAL))
 		case .recursive:
-			pthread_mutexattr_settype(&attr, PTHREAD_MUTEX_RECURSIVE)
+			pthread_mutexattr_settype(&attr, Int32(PTHREAD_MUTEX_RECURSIVE))
 		}
 		guard pthread_mutex_init(&unsafeMutex, &attr) == 0 else {
 			preconditionFailure()
