@@ -324,7 +324,7 @@ public struct DebugContext: CustomExecutionContext {
 	
 	@available(*, deprecated, message: "Use invokeSync instead")
 	public func invokeAndWait(_ execute: @escaping () -> Void) {
-		_ = invokeSync(execute)
+        invokeSync(execute)
 	}
 	
 	/// Run `execute` on the execution context but don't return from this function until the provided function is complete.

@@ -207,7 +207,7 @@ extension Exec: CustomExecutionContext {
 public extension Exec {
 	@available(*, deprecated, message: "Use invokeSync instead")
 	func invokeAndWait(_ execute: @escaping () -> Void) {
-		_ = invokeSync(execute)
+        invokeSync(execute)
 	}
 	
 	@available(*, deprecated, message:"Values returned from this may be misleading. Perform your own switch to precisely get the information you need.")

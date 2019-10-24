@@ -50,7 +50,7 @@ public struct SerializingContext: CustomExecutionContext {
 	
 	@available(*, deprecated, message: "Use invokeSync instead")
 	public func invokeAndWait(_ execute: @escaping () -> Void) {
-		_ = invokeSync(execute)
+		invokeSync(execute)
 	}
 	
 	public func invokeSync<Return>(_ execute: () throws -> Return) rethrows -> Return {

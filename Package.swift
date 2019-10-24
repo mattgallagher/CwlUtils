@@ -3,11 +3,11 @@ import PackageDescription
 
 let package = Package(
 	name: "CwlUtils",
-   products: [
-   	.library(name: "CwlUtils", type: .dynamic, targets: ["CwlUtils"]),
+	products: [
+		.library(name: "CwlUtils", targets: ["CwlUtils"]),
 	],
 	dependencies: [
-		.package(url: "https://github.com/mattgallagher/CwlPreconditionTesting.git", from: "1.2.0"),
+		.package(url: "https://github.com/mattgallagher/CwlPreconditionTesting.git", from: "2.0.0"),
 	],
 	targets: [
 		.target(

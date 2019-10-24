@@ -11,7 +11,7 @@ import XCTest
 import CwlUtils
 
 struct A: Codable {
-	let value: Int = 123
+	var value: Int = 123
 }
 
 struct B: Codable {
@@ -55,7 +55,7 @@ class CaseNameCodableTests: XCTestCase {
 		let x = Sum.b(B())
 		let data = try! JSONEncoder().encode(x)
 		let string = String(data: data, encoding: .utf8)!
-		XCTAssertEqual(string, #"{"b":null}"#)
+		XCTAssertEqual(string, #"{"b":{}}"#)
 		
 		let y = try! JSONDecoder().decode(Sum.self, from: data)
 		if case .b = y {

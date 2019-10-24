@@ -1,7 +1,0 @@
-.DS_Store
-project.xcworkspace/
-xcuserdata/
-.build
-Package.pins
-Package.resolved
-Packages/
