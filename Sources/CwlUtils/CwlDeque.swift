@@ -398,7 +398,7 @@ public struct Deque<T>: RandomAccessCollection, MutableCollection, RangeReplacea
 }
 
 // Internal state for the Deque
-private struct DequeHeader {
+public struct DequeHeader {
 	var offset: Int
 	var count: Int
 	var capacity: Int
@@ -455,7 +455,7 @@ private struct HeapObject {
 // storage and then using raw pointer offsets into self to access contents
 // (avoiding the ManagedBufferPointer accessors which are a performance problem
 // in Swift 3).
-private final class DequeBuffer<T>: ManagedBuffer<DequeHeader, T> {
+public final class DequeBuffer<T>: ManagedBuffer<DequeHeader, T> {
 	#if true
 		private static var headerOffset: Int {
 			return Int(roundUp(UInt(MemoryLayout<HeapObject>.size), toAlignment: MemoryLayout<DequeHeader>.alignment))
